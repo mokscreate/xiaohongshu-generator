@@ -52,3 +52,6 @@ app.post('/api/generate', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`后端服务运行在 http://localhost:${PORT}`);
 });
+
+// 导出给 Vercel 使用
+export default app;

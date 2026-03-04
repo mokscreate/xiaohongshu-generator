@@ -103,7 +103,12 @@ ${bodyEx}
 
   console.log("开始生成笔记...");
 
-  const res = await fetch("http://localhost:3001/api/generate", {
+  // 自动检测 API 地址
+  const apiUrl = window.location.hostname === 'localhost'
+    ? 'http://localhost:3001'
+    : '';  // 生产环境使用相对路径
+
+  const res = await fetch(`${apiUrl}/api/generate`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
